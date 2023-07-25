@@ -9,9 +9,11 @@ use std::sync::Arc;
 use std::thread;
 use std::time::Duration;
 
+
 struct JobStatus {
     jobs_completed: u32,
 }
+
 
 fn main() {
     let status = Arc::new(JobStatus { jobs_completed: 0 });
@@ -29,6 +31,6 @@ fn main() {
         handle.join().unwrap();
         // TODO: Print the value of the JobStatus.jobs_completed. Did you notice anything
         // interesting in the output? Do you have to 'join' on all the handles?
-        println!("jobs completed {}", ???);
+        println!("jobs completed {}", status.jobs_completed);
     }
 }
